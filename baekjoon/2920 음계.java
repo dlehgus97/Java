@@ -1,26 +1,25 @@
 import java.util.Scanner;
 
-public class Main {
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int [] arr = new int [9];
+        int acs = 0;
+        int des = 0;
+        for(int i = 0 ; i<8; i++){
+            arr[i] = sc.nextInt();
+            if(arr[i] == i+1)
+                acs++;
+            else if(arr[i] == 8-i)
+                des--;
+        }
+        if(acs == 8)
+            System.out.println("ascending");
+        else if(des == -8)
+            System.out.println("descending");
+        else
+            System.out.println("mixed");
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int inputs[] = new int[8];
-		int cnt = 0;
-		String a = "";
-		for (int i = 0; i < 8; i++) {
-			inputs[i] = sc.nextInt();
-		}
-		for (int i = 0; i < inputs.length-1; i++) {
-			if(inputs[i+1]==inputs[i]+1){
-				a = "ascending";
-			}
-			else if(inputs[i+1]==inputs[i]-1){
-				a = "descending";
-			}
-			else{
-				a = "mixed";break;
-			}
-		}
-		System.out.println(a);
-	}
+
+    }
 }
