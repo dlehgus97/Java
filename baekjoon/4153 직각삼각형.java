@@ -1,34 +1,31 @@
 import java.util.Scanner;
- 
+import java.util.Arrays;
+
+
 public class Main {
-	public static void main(String[] args) {
-    
-        Scanner in = new Scanner(System.in);
-       
-        
-        while(true) {
-        	
-        	int x = in.nextInt();
-        	int y = in.nextInt();
-        	int z = in.nextInt();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int arr[] = new int[3];
+        while (true) {
 
-        	if(x == 0 && y == 0 && z == 0) break;
+           arr[0] = sc.nextInt();
+           arr[1] = sc.nextInt();
+           arr[2] = sc.nextInt();
+           Arrays.sort(arr);
+           
+           if(arr[0] == 0 && arr[1] == 0 && arr[2] == 0){
+               break;
+           }
 
-        	if((x * x + y * y) == z * z) {
-				System.out.println("right");
-			}
-        	else if(x * x == (y * y + z * z)) {
-				System.out.println("right");
-			}
-        	else if(y * y == (z * z + x * x)) {
-				System.out.println("right");
-			}
-        	else {
-				System.out.println("wrong");
-			}
-        	
-		}
- 
-	}
- 
+           if((arr[0]*arr[0]) + (arr[1]*arr[1]) == (arr[2]*arr[2]))
+               System.out.println("right");
+           else
+               System.out.println("wrong");
+
+        }
+
+    }
 }
+
+
+//sort 하기위해 import java.util.Arrays;로 배열을 사용하였다. 그점만 유의 
