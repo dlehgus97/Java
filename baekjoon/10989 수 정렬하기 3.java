@@ -32,6 +32,7 @@ public class Main {
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Main {
     static int Num = 10000;
@@ -42,18 +43,22 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
 
+
         int [] arr = new int[N];
-        for(int i = 0 ; i<N; i++){
-            arr[Integer.parseInt(br.readLine())] += 1;
-        }   
-       
-        for(int i = 0; i<Num; i++){
-            for(int j = 0; j<arr[i]; j++){
-                sb.append(i).append("\n");
-              }
-            }
-      System.out.println(sb);  }
+
+        for(int i = 0; i<N; i++){
+            arr[i] = Integer.parseInt(br.readLine());
+        }
+        Arrays.sort(arr);
+
+        for(int i =0 ; i<N; i++){
+            sb.append(arr[i]).append("\n");
+        }
+
+        System.out.print(sb);
     }
+}
+
 
 /*Scanner을 통한 방법은 시간초과가 나와서 급하게 BufferedReader 짧게 공부해서 풀은 문제 
 방법 1같은 경우는  int [] arr = new int[Num]에 Num에 해당하는 값에 N을 집어넣어서 초반에 틀렸다 .N 변수의 값은  몇개를 입력받을지에 관한수이지 이 방법에서는 
