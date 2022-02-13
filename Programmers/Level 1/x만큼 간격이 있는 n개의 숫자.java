@@ -7,6 +7,7 @@ class Solution {
             temp +=x;
         }
         return answer;
+
     }
 }   
 
