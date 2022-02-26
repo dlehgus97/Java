@@ -1,0 +1,16 @@
+import java.util.*;
+public class Main {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int e = scan.nextInt();
+                int s = scan.nextInt();
+                int m = scan.nextInt();
+		
+		int year = 0;
+		while(true) {
+			year++;
+			if((year-e)%15 == 0 && (year-s)%28 == 0 && (year-m)%19 == 0) break;
+		}
+		System.out.print(year);
+	}
+}
