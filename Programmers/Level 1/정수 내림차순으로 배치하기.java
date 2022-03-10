@@ -7,6 +7,7 @@ class Solution {
         
         
         String[] arr = word.split("");
+
         Arrays.sort(arr, Collections.reverseOrder());
         
         
