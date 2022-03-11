@@ -17,5 +17,6 @@ class Solution {
         long answer = Long.parseLong(word);
  
         return answer;
+
     }
 }
