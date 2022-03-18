@@ -12,6 +12,7 @@ class Solution {
                 min = Math.min(min, arr[i]);
             }
             int index = 0;
+
             for(int i=0; i<arr.length; i++){
                 if(min == arr[i]){
                     continue;
