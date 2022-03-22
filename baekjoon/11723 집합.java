@@ -1,43 +1,56 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.*;
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+public class Main{
+    public static void main(String[]args) throws IOException {
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       StringBuilder sb = new StringBuilder();
+
+
+
+        int s = 0 ;
         int M = Integer.parseInt(br.readLine());
 
-        int s = 0;
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < M; i++) {
-            String[] input = br.readLine().split(" ");
 
-            switch (input[0]) {
-                case "all":
+        while (M-- >0){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            String word = st.nextToken();
+            int num;
+
+            switch (word){
+                case "add" :
+                    num = Integer.parseInt(st.nextToken());
+                    s |= (1<<(num-1));
+                    break;
+
+                case "remove" :
+                    num =Integer.parseInt(st.nextToken());
+                    s &= ~(1<<(num-1));
+                    break;
+
+                case "check" :
+                    num = Integer.parseInt(st.nextToken());
+                    sb.append((s& (1 << (num - 1))) != 0 ? "1\n" : "0\n");
+                    break;
+
+                case "toggle" :
+                    num = Integer.parseInt(st.nextToken());
+                    s ^= (1 << (num-1));
+                    break;
+                case "all" :
                     s = (1 << 21) - 1;
                     break;
-                case "empty":
+
+                case "empty" :
                     s = 0;
                     break;
-                default:
-                    int x = Integer.parseInt(input[1]);
-                    switch (input[0]) {
-                        case "add":
-                            s |= (1 << x);
-                            break;
-                        case "remove":
-                            s &= ~(1 << x);
-                            break;
-                        case "check":
-                            sb.append((s & (1 << x)) != 0 ? 1 : 0).append('\n');
-                            break;
-                        case "toggle":
-                            s ^= (1 << x);
-                            break;
-                    }
+
             }
         }
-
         System.out.println(sb);
     }
 }
+
+//비트마스크 문제이다 . 코테를 위해 더 공부해야할듯 
