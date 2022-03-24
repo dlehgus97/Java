@@ -1,30 +1,35 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
+
 public class Main {
-    public static void main(String[] args) throws IOException {
-       Scanner sc = new Scanner(System.in);
-       int n = sc.nextInt();
-       int m = sc.nextInt();
-       List<String> list1 = new ArrayList<>();
-       List<String> list2 = new ArrayList<>();
-       
-       for(int i = 0 ; i<n; i++) {
-    	   list1.add(sc.next());
-       }
-       Collections.sort(list1);
-       String[] arr1 = new String[list1.size()];
-       arr1 = list1.toArray(arr1);
-       
-       for(int i = 0; i<m; i++) {
-    	   String s = sc.next();
-    	   int num = Arrays.binarySearch(arr1, s); 
-    	   if(num >= 0)
-    		   list2.add(s);
-       }
-       
-       Collections.sort(list2);
-       System.out.println(list2.size());
-       for(String k : list2)
-    	   System.out.println(k);  
+    public static void main(String[]args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+
+        HashSet<String> set = new HashSet<>();  //속도를 줄여준다
+        for(int i = 0 ; i<N; i++){
+            set.add(br.readLine());
+        }
+        ArrayList<String> rest = new ArrayList<>();
+        for(int i = 0; i<M; i++){
+            String str = br.readLine();
+            if(set.contains(str)){
+                rest.add(str);
+            }
+        }
+        Collections.sort(rest); //사전 순서
+
+        System.out.println(rest.size());
+        for(int i = 0; i<rest.size(); i++){
+            System.out.println(rest.get(i));  //get을 통해 하나씩 출력
+        }
+
+
     }
+
 }
