@@ -17,6 +17,7 @@ public class Main {
 		for(int i = 1; i < N + 1; i++) {
 			arr[i] = in.nextInt();
 		}
+
  
 		dp[0] = 0;
 		dp[1] = arr[1];
@@ -33,7 +34,6 @@ public class Main {
 		if(dp[N] == null) {
 			dp[N] = Math.max(Math.max(recur(N - 2), recur(N - 3) + arr[N - 1]) + arr[N], recur(N - 1));
 		}
-		
 		return dp[N];
 	}
 }
