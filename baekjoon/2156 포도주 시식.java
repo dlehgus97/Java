@@ -35,6 +35,7 @@ public class Main {
 			dp[N] = Math.max(Math.max(recur(N - 2), recur(N - 3) + arr[N - 1]) + arr[N], recur(N - 1));
 		}
 		return dp[N];
+		
 	}
 }
  
