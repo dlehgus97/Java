@@ -1,4 +1,5 @@
 class Solution {
+
     public int[] solution(int[] arr) {
         int[] answer = {};
         if(arr.length==1){
