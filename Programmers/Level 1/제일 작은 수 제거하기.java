@@ -5,7 +5,8 @@ class Solution {
         if(arr.length==1){
             answer = new int[1];
             answer[0] = -1;
-        }else{
+        }
+        else{
             answer = new int[arr.length-1];
             int min = arr[0];
             
