@@ -1,6 +1,7 @@
 class Solution {
 
     public int[] solution(int[] arr) {
+      
         int[] answer = {};
         if(arr.length==1){
             answer = new int[1];
@@ -21,8 +22,10 @@ class Solution {
                 }
                 answer[index] = arr[i];
                 index++;
+
             }
         }
         return answer;
     }
 }
+//
