@@ -18,7 +18,7 @@ public class Main {
 			int res = val+1;
 			if(res<answer) answer = res;
 		}
-		
+		//
 		int length = Integer.toString(val).length();
 		recursive(val, "", array, length, 0);	
 		System.out.println(answer);
