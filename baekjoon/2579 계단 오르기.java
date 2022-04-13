@@ -19,7 +19,7 @@ public class Main {
 			arr[i] = Integer.parseInt(br.readLine());
 		}
 		
-		dp[0] = arr[0];	/
+		dp[0] = arr[0];	
 		dp[1] = arr[1];
 		
 		if(N >= 2) {
