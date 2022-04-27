@@ -1,36 +1,32 @@
 import java.util.*;
 
-
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
 
-		int T = sc.nextInt();
-		int arr[][] = new int[31][31];
-		arr[0][0] = 1;
-		arr[0][1] = 1;
-		
-		for (int i = 1; i <= 30; i++) {
-			for (int j = 0; j <= i; j++) {
-				if(j == 0 || j == i) {
-					arr[i][j] = 1;
-				}else {
-					arr[i][j] = (arr[i-1][j-1] + arr[i-1][j]);
-				}
-			}
-		}
-		
-		for (int i = 0; i < T; i++) {
-			int N = sc.nextInt();
-			int K= sc.nextInt();
-			if(N < K) {
-				int tmp = N;
-				N = K;
-				K = tmp;
-			}
-			System.out.println(arr[N][K]);
-		}
-	}
+
+        for (int i = 0; i < T; i++) {
+            int result_1 = 1;
+            int result_2 = 1;
+            int N = sc.nextInt();
+            int M = sc.nextInt();
+            int total = 0;
+
+            for (int k = M; k > M - N; k--) {
+                result_1 *= k;
+            }
+            for (int s = N; s > 0; s--) {
+                result_2 *= s;
+            }
+            total = result_1 /result_2;
+            System.out.println(total);
+        }
+    }
+
+
 }
 
-//다시품 ㅇㅅㅇ
+//처음에 이렇게 풀었는데 long 으로 했을때 오버플로우가 발생할 수 있다.(long의 범위를 넘어서)
+//BigInteger 를 사용해서 내일 풀어볼것 .!
+
